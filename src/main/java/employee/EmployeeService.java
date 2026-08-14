@@ -3,7 +3,10 @@ package employee;
 import java.util.List;
 
 public class EmployeeService {
-    EmployeeRepository employeeRepository = new EmployeeRepository();
+    EmployeeRepository employeeRepository ;
+    EmployeeService(EmployeeRepository emp){
+        this.employeeRepository =emp;
+    }
     public void addEmployee(Employee employee){
         employeeRepository.addEmployee(employee);
     }
@@ -18,5 +21,8 @@ public class EmployeeService {
     }
     public void update(int id){
         employeeRepository.update(id);
+    }
+    public void empList(){
+        employeeRepository.listEmployees();
     }
 }

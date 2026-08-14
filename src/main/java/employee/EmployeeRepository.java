@@ -40,4 +40,12 @@ public class EmployeeRepository {
            }
        }
    }
+
+   public void listEmployees() {
+        ListIterator<Employee> itr = employeeList.listIterator();
+        while(itr.hasNext()){
+            Employee e = itr.next();
+            System.out.println(e.toString());
+        }
+   }
 }
