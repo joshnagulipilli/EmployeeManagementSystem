@@ -3,7 +3,7 @@ package employee;
 import java.util.List;
 
 public class EmployeeService {
-    EmployeeRepository employeeRepository ;
+    private final EmployeeRepository employeeRepository ;
     EmployeeService(EmployeeRepository emp){
         this.employeeRepository =emp;
     }

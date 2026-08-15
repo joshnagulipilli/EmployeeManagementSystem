@@ -21,6 +21,16 @@ public class Main {
             employeeService.addEmployee(e);
             //System.out.println(e.toString());
         }
+
+        //finding an employee
+        Employee e = employeeService.findById(102);
+        //System.out.println(e);
+        //Removing an employee
+        employeeService.removeEmployee(e);
+        //getting all employees from list
+        employeeService.empList();
+        //updating an employee
+        employeeService.update(113);
         employeeService.empList();
     }
 }
