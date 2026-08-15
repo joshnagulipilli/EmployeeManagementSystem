@@ -2,6 +2,7 @@ package employee;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static employee.Department.*;
 import static employee.EmployeeStatus.*;
@@ -23,12 +24,13 @@ public class Main {
         }
 
         //finding an employee
-        Employee e = employeeService.findById(102);
-        //System.out.println(e);
+        Optional<Employee> e = employeeService.findById(100);
+        e.ifPresent(x-> System.out.println(x));
         //Removing an employee
-        employeeService.removeEmployee(e);
+        String result = employeeService.removeEmployee(102);
+        System.out.println(result);
         //getting all employees from list
-        employeeService.empList();
+        //employeeService.empList();
         //updating an employee
         employeeService.update(113);
         employeeService.empList();

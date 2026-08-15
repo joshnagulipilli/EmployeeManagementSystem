@@ -3,11 +3,12 @@ package employee;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Optional;
 
 import static employee.Department.*;
 
 public class EmployeeRepository {
-   List<Employee> employeeList = new ArrayList<>();
+   private List<Employee> employeeList = new ArrayList<>();
 
    public void addEmployee(Employee employee){
        employeeList.add(employee);
@@ -17,17 +18,17 @@ public class EmployeeRepository {
        employeeList.remove(employee);
    }
 
-   public Employee findById(int id){
+   public Optional<Employee> findById(int id){
        for(Employee e : employeeList){
            if(e.id == id){
-               return e;
+               return Optional.of(e);
            }
        }
-       return null;
+       return Optional.empty();
    }
 
    public List<Employee> findAll(){
-       return employeeList;
+       return new ArrayList<>(employeeList);
    }
 
    public void update(int id){
