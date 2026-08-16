@@ -14,8 +14,12 @@ public class EmployeeRepository {
        employeeList.add(employee);
    }
 
-   public void remove(Employee employee){
-       employeeList.remove(employee);
+   public void remove(Employee emp){
+       employeeList.remove(emp);
+       //since stream creates new list and modicy that we should not use streams here
+//       employeeList.stream()
+//               .map(e->e.getId()==id)
+//               .forEach(e->employeeList.remove(e));
    }
 
    public Optional<Employee> findById(int id){
@@ -31,22 +35,6 @@ public class EmployeeRepository {
        return new ArrayList<>(employeeList);
    }
 
-   public void update(int id){
-       ListIterator<Employee> itr = employeeList.listIterator();
-       while(itr.hasNext()){
-           Employee emp = itr.next();
-           if(emp.id == id){
-               emp.setDepartment(FINANACE);
-               emp.setSalary(emp.getSalary()+20000.0);
-           }
-       }
-   }
-
-   public void listEmployees() {
-        ListIterator<Employee> itr = employeeList.listIterator();
-        while(itr.hasNext()){
-            Employee e = itr.next();
-            System.out.println(e.toString());
-        }
+   public void updateSalary(Employee e){
    }
 }

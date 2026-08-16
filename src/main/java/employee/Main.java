@@ -2,6 +2,7 @@ package employee;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Optional;
 
 import static employee.Department.*;
@@ -22,7 +23,6 @@ public class Main {
             employeeService.addEmployee(e);
             //System.out.println(e.toString());
         }
-
         //finding an employee
         Optional<Employee> e = employeeService.findById(100);
         e.ifPresent(x-> System.out.println(x));
@@ -32,7 +32,11 @@ public class Main {
         //getting all employees from list
         //employeeService.empList();
         //updating an employee
-        employeeService.update(113);
-        employeeService.empList();
+        employeeService.updateSalary(MARKETING);
+        List<Employee> emp = employeeService.findAll();
+        ListIterator<Employee> lst = emp.listIterator();
+        while(lst.hasNext()){
+            System.out.println(lst.next());
+        }
     }
 }
